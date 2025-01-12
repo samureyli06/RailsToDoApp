@@ -4,13 +4,29 @@
 
 <h1>To-Do List</h1>
 
-<div id="todos">
-  <% @todos.each do |todo| %>
-    <%= render todo %>
-    <p>
-      <%= link_to "Show this todo", todo %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td>
+          <%= todo.task %>
+          <%= link_to "Edit this todo", edit_todo_path(todo) %>
+        </td>
+      
+        <td>
+          <%= simple_form_for todo, :defaults => { :input_html => { :action => "Penis" } } do |f|%>
+            <%= f.input :status, as: :boolean, label: false, :input_html => {:onchange => "this.form.requestSubmit()"}%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New todo", new_todo_path %>
