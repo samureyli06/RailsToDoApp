@@ -8,3 +8,12 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+img {
+    opacity: 0.5;
+  }
+  
+img:hover {
+    opacity: 1.0;
+  }
+
+.NoPaddingOrMargin {padding: 0px; margin:0px}

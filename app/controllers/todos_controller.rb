@@ -38,6 +38,18 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
+        format.html { redirect_to todos_path }
+        format.json { render :show, status: :ok, location: @todo }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @todo.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def quickupdate
+    respond_to do |format|
+      if @todo.quickupdate(todo_params)
         format.html 
         format.json { render :show, status: :ok, location: @todo }
       else
