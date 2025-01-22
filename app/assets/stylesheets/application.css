@@ -8,11 +8,11 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-img {
+.imghoverable {
     opacity: 0.5;
   }
   
-img:hover {
+.imghoverable:hover {
     opacity: 1.0;
   }
 

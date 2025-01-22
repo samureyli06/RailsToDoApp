@@ -15,6 +15,7 @@
   <div>
     <%= form.label :task, style: "display: block" %>
     <%= form.text_field :task %>
+    <%= form.number_field :user_id, id: :todo_user_id, value: current_user.id%>
   </div>
   <br>
   <div>
